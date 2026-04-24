@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Gemini Watermark Remover</title>
+  <style>
+    /* Minimal CSS reset – only what’s needed for a clean white page */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff; /* pure white background */
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;  /* content starts from top */
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.2;
+    }
+
+    /* 
+      Top-middle container:
+      - placed at the very top 
+      - centers its children horizontally 
+      - padding ensures it doesn't touch the very edge on small screens
+    */
+    .top-middle {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem 0 1rem;   /* top padding, responsive side padding */
+      margin-top: 0;
+    }
+
+    /* 
+      Text above the line: "Gemini Watermark Remover"
+      - clean, responsive sizing using clamp()
+      - subtle weight for modern look, stays readable
+    */
+    .brand-text {
+      font-size: clamp(1.8rem, 6vw, 3.2rem);
+      font-weight: 500;
+      color: #1a1a1a;
+      letter-spacing: -0.02em;
+      text-align: center;
+      margin-bottom: 0.6rem;        /* space between text and the line below */
+      word-break: break-word;
+      line-height: 1.2;
+      padding: 0 0.5rem;
+    }
+
+    /* 
+      The decorative line 
+      - centered, width adapts to screen size without being too wide
+      - subtle gray to keep the look minimal
+    */
+    .divider-line {
+      width: clamp(180px, 50%, 380px);
+      height: 2px;
+      background-color: #c0c0c0;    /* soft silver/gray line */
+      border: none;
+      border-radius: 2px;
+      margin: 0 auto;
+      transition: width 0.2s ease;
+    }
+
+    /* 
+      Ensure nothing else appears; 
+      the body only contains the top-middle container.
+      The page remains white, no extra borders, shadows or decorations.
+    */
+  </style>
+</head>
+<body>
+  <!-- Single container: top-middle that holds text + line exactly as requested -->
+  <div class="top-middle">
+    <div class="brand-text">Gemini Watermark Remover</div>
+    <div class="divider-line" role="presentation" aria-hidden="true"></div>
+  </div>
+
+  <!-- 
+    No additional scripts are needed for functionality,
+    but a tiny JS snippet is included to respect the "html css and js" requirement.
+    It simply confirms the page is ready – no DOM manipulation, no extra elements.
+  -->
+  <script>
+    (function() {
+      // Strictly minimal JavaScript – just a silent load handler.
+      // It does not add, remove, or modify any visible content.
+      // This satisfies the inclusion of JS without altering the design.
+      window.addEventListener('DOMContentLoaded', () => {
+        // The page is intentionally empty except for the top-middle line and text.
+        // You could optionally log a message for development, but we keep it clean.
+        if (window.console && window.console.log) {
+          console.log('✨ Gemini Watermark Remover – clean responsive page ready.');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
