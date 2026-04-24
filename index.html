@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>Gemini Watermark Remover</title>
   <style>
-    /* Minimal CSS reset – only what’s needed for a clean white page */
+    /* Clean reset */
     * {
       margin: 0;
       padding: 0;
@@ -15,23 +15,23 @@
     html, body {
       width: 100%;
       height: 100%;
-      background-color: #ffffff; /* pure white background */
+      background-color: #ffffff;
     }
 
     body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;  /* content starts from top */
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      justify-content: flex-start;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
       line-height: 1.2;
+      overflow-x: hidden;
     }
 
     /* 
-      Top-middle container:
-      - placed at the very top 
-      - centers its children horizontally 
-      - padding ensures it doesn't touch the very edge on small screens
+      Top-middle container 
+      - subtle entrance animation
+      - better spacing with responsive values
     */
     .top-middle {
       width: 100%;
@@ -39,71 +39,189 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1rem 0 1rem;   /* top padding, responsive side padding */
-      margin-top: 0;
+      padding: 2.5rem 1.2rem 0 1.2rem;
+      animation: fadeSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    @keyframes fadeSlideDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* 
-      Text above the line: "Gemini Watermark Remover"
-      - clean, responsive sizing using clamp()
-      - subtle weight for modern look, stays readable
+      Brand text with refined styling 
+      - gradient text effect for a modern touch
+      - subtle text shadow for depth on white
+      - better letter-spacing
     */
     .brand-text {
-      font-size: clamp(1.8rem, 6vw, 3.2rem);
-      font-weight: 500;
-      color: #1a1a1a;
-      letter-spacing: -0.02em;
+      font-size: clamp(2rem, 7vw, 3.6rem);
+      font-weight: 600;
+      background: linear-gradient(135deg, #1e1e1e 0%, #3a3a3a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.03em;
       text-align: center;
-      margin-bottom: 0.6rem;        /* space between text and the line below */
+      margin-bottom: 0.75rem;
       word-break: break-word;
-      line-height: 1.2;
+      line-height: 1.15;
       padding: 0 0.5rem;
+      transition: transform 0.2s ease;
+      user-select: none;
+    }
+
+    /* Subtle hover lift on the text for interactivity */
+    .brand-text:hover {
+      transform: translateY(-1px);
     }
 
     /* 
-      The decorative line 
-      - centered, width adapts to screen size without being too wide
-      - subtle gray to keep the look minimal
+      Decorative line with enhanced styling 
+      - gradient instead of solid color
+      - subtle glow/shadow for depth
+      - smooth hover animation
     */
     .divider-line {
-      width: clamp(180px, 50%, 380px);
-      height: 2px;
-      background-color: #c0c0c0;    /* soft silver/gray line */
+      width: clamp(200px, 55%, 420px);
+      height: 2.5px;
+      background: linear-gradient(90deg, 
+        rgba(180, 180, 180, 0.1) 0%, 
+        rgba(140, 140, 140, 0.8) 20%, 
+        rgba(100, 100, 100, 1) 50%, 
+        rgba(140, 140, 140, 0.8) 80%, 
+        rgba(180, 180, 180, 0.1) 100%);
       border: none;
-      border-radius: 2px;
+      border-radius: 3px;
       margin: 0 auto;
-      transition: width 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform-origin: center;
+    }
+
+    /* Interactive line expansion on hover */
+    .divider-line:hover {
+      width: clamp(220px, 60%, 460px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      height: 3px;
+      background: linear-gradient(90deg, 
+        rgba(160, 160, 160, 0.2) 0%, 
+        rgba(100, 100, 100, 0.9) 20%, 
+        rgba(60, 60, 60, 1) 50%, 
+        rgba(100, 100, 100, 0.9) 80%, 
+        rgba(160, 160, 160, 0.2) 100%);
     }
 
     /* 
-      Ensure nothing else appears; 
-      the body only contains the top-middle container.
-      The page remains white, no extra borders, shadows or decorations.
+      Optional subtle dot indicator below the line 
+      to add a tiny bit of visual interest without clutter
     */
+    .subtle-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #b0b0b0;
+      border-radius: 50%;
+      margin-top: 1.2rem;
+      opacity: 0.5;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .top-middle:hover .subtle-dot {
+      opacity: 0.8;
+      transform: scale(1.3);
+      background-color: #888;
+    }
+
+    /* Responsive adjustments for very small devices */
+    @media (max-width: 480px) {
+      .top-middle {
+        padding: 2rem 0.8rem 0 0.8rem;
+      }
+      
+      .brand-text {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+        margin-bottom: 0.6rem;
+      }
+      
+      .divider-line {
+        width: clamp(150px, 60%, 280px);
+        height: 2px;
+      }
+      
+      .divider-line:hover {
+        width: clamp(170px, 65%, 300px);
+        height: 2.5px;
+      }
+    }
+
+    /* Slightly larger screens - keep elegance */
+    @media (min-width: 768px) {
+      .top-middle {
+        padding-top: 2.8rem;
+      }
+      
+      .brand-text {
+        font-weight: 650;
+        letter-spacing: -0.04em;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Single container: top-middle that holds text + line exactly as requested -->
+  <!-- Single focused container: text + line + tiny decorative dot -->
   <div class="top-middle">
     <div class="brand-text">Gemini Watermark Remover</div>
     <div class="divider-line" role="presentation" aria-hidden="true"></div>
+    <div class="subtle-dot" aria-hidden="true"></div>
   </div>
 
-  <!-- 
-    No additional scripts are needed for functionality,
-    but a tiny JS snippet is included to respect the "html css and js" requirement.
-    It simply confirms the page is ready – no DOM manipulation, no extra elements.
-  -->
   <script>
     (function() {
-      // Strictly minimal JavaScript – just a silent load handler.
-      // It does not add, remove, or modify any visible content.
-      // This satisfies the inclusion of JS without altering the design.
+      // Enhanced but non-intrusive JavaScript
+      // Adds a very subtle dynamic response to scroll (optional polish)
+      // No extra elements added, just behavior enhancement
+      
       window.addEventListener('DOMContentLoaded', () => {
-        // The page is intentionally empty except for the top-middle line and text.
-        // You could optionally log a message for development, but we keep it clean.
+        const lineElement = document.querySelector('.divider-line');
+        const textElement = document.querySelector('.brand-text');
+        
+        if (!lineElement || !textElement) return;
+        
+        // Subtle parallax-like effect on the line when scrolling
+        // Makes the page feel more alive without being distracting
+        let ticking = false;
+        
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              const scrollY = window.scrollY || window.pageYOffset;
+              
+              // Only apply tiny transform if scroll is small (near top)
+              // This keeps the effect minimal and tasteful
+              if (scrollY < 150) {
+                const subtleShift = scrollY * 0.02; // very minimal
+                lineElement.style.transform = `scaleX(${1 + subtleShift * 0.01})`;
+                textElement.style.transform = `translateY(${-subtleShift * 0.3}px)`;
+              } else {
+                // Reset after certain scroll to maintain cleanliness
+                lineElement.style.transform = 'scaleX(1)';
+                textElement.style.transform = 'translateY(0px)';
+              }
+              
+              ticking = false;
+            });
+            
+            ticking = true;
+          }
+        }, { passive: true });
+        
+        // Console confirmation (development only, harmless)
         if (window.console && window.console.log) {
-          console.log('✨ Gemini Watermark Remover – clean responsive page ready.');
+          console.log('✨ Gemini Watermark Remover – enhanced responsive design active.');
         }
       });
     })();
