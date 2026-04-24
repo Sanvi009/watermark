@@ -29,14 +29,10 @@
       padding-bottom: 2rem;
     }
 
-    /* Top-middle container */
-    .top-middle {
+    /* Top bar container */
+    .top-bar {
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2.5rem 1.2rem 1.5rem 1.2rem;
+      padding: 1.5rem 2rem 0.8rem 2rem;
       animation: fadeSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       opacity: 0;
       transform: translateY(-8px);
@@ -49,47 +45,70 @@
       }
     }
 
-    .brand-text {
-      font-size: clamp(2rem, 7vw, 3.6rem);
-      font-weight: 600;
+    .top-bar-inner {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2.5px solid #e0e0e0;
+      transition: border-color 0.35s ease;
+    }
+
+    .top-bar-inner:hover {
+      border-bottom-color: #888;
+    }
+
+    .domain-text {
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-weight: 500;
+      color: #666;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .domain-text:hover {
+      color: #333;
+    }
+
+    .right-placeholder {
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      color: transparent;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    /* Hero heading section */
+    .hero-heading {
+      width: 100%;
+      text-align: center;
+      padding: 1.8rem 1.2rem 0.5rem 1.2rem;
+      animation: fadeIn 0.5s ease 0.2s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .hero-heading h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 700;
       background: linear-gradient(135deg, #1e1e1e 0%, #3a3a3a 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.03em;
-      text-align: center;
-      margin-bottom: 0.75rem;
-      word-break: break-word;
-      line-height: 1.15;
-      padding: 0 0.5rem;
+      line-height: 1.2;
       transition: transform 0.2s ease;
-      user-select: none;
     }
 
-    .brand-text:hover {
+    .hero-heading h1:hover {
       transform: translateY(-1px);
-    }
-
-    .divider-line {
-      width: clamp(200px, 55%, 420px);
-      height: 2.5px;
-      background: linear-gradient(90deg, 
-        rgba(180, 180, 180, 0.1) 0%, 
-        rgba(140, 140, 140, 0.8) 20%, 
-        rgba(100, 100, 100, 1) 50%, 
-        rgba(140, 140, 140, 0.8) 80%, 
-        rgba(180, 180, 180, 0.1) 100%);
-      border: none;
-      border-radius: 3px;
-      margin: 0 auto;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .divider-line:hover {
-      width: clamp(220px, 60%, 460px);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      height: 3px;
     }
 
     /* Tool container */
@@ -98,12 +117,8 @@
       max-width: 700px;
       margin: 0 auto;
       padding: 0 1.2rem;
-      animation: fadeIn 0.5s ease 0.3s forwards;
+      animation: fadeIn 0.5s ease 0.4s forwards;
       opacity: 0;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
     }
 
     /* Upload area */
@@ -405,16 +420,17 @@
     }
 
     @media (max-width: 480px) {
-      .top-middle {
-        padding: 2rem 0.8rem 1rem 0.8rem;
+      .top-bar {
+        padding: 1rem 1rem 0.5rem 1rem;
       }
-      .brand-text {
-        font-size: clamp(1.8rem, 8vw, 2.4rem);
-        margin-bottom: 0.6rem;
+      .top-bar-inner {
+        gap: 1rem;
       }
-      .divider-line {
-        width: clamp(150px, 60%, 280px);
-        height: 2px;
+      .hero-heading {
+        padding: 1.2rem 0.8rem 0.3rem 0.8rem;
+      }
+      .hero-heading h1 {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
       }
       .upload-area {
         padding: 1.5rem 1rem;
@@ -423,10 +439,17 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <div class="top-middle">
-    <div class="brand-text">Gemini Watermark Remover</div>
-    <div class="divider-line" role="presentation" aria-hidden="true"></div>
+  <!-- Top bar with domain and line -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span class="domain-text">geminilogoremover.online</span>
+      <span class="right-placeholder" aria-hidden="true">placeholder</span>
+    </div>
+  </div>
+
+  <!-- Hero heading -->
+  <div class="hero-heading">
+    <h1>Remove Gemini Watermark for Free</h1>
   </div>
 
   <!-- Tool Container -->
@@ -1013,23 +1036,23 @@
       // Start clean
       resetUI();
 
-      // Subtle scroll effect for the line
+      // Subtle scroll effect for the top bar line
       window.addEventListener('DOMContentLoaded', () => {
-        const lineElement = document.querySelector('.divider-line');
-        const textElement = document.querySelector('.brand-text');
-        if (!lineElement || !textElement) return;
+        const topBarInner = document.querySelector('.top-bar-inner');
+        const heroHeading = document.querySelector('.hero-heading h1');
+        if (!topBarInner || !heroHeading) return;
         let ticking = false;
         window.addEventListener('scroll', () => {
           if (!ticking) {
             window.requestAnimationFrame(() => {
               const scrollY = window.scrollY || window.pageYOffset;
               if (scrollY < 150) {
-                const shift = scrollY * 0.02;
-                lineElement.style.transform = `scaleX(${1 + shift * 0.01})`;
-                textElement.style.transform = `translateY(${-shift * 0.3}px)`;
+                const shift = scrollY * 0.015;
+                topBarInner.style.transform = `scaleX(${1 - shift * 0.005})`;
+                heroHeading.style.transform = `translateY(${-shift * 0.4}px)`;
               } else {
-                lineElement.style.transform = 'scaleX(1)';
-                textElement.style.transform = 'translateY(0px)';
+                topBarInner.style.transform = 'scaleX(1)';
+                heroHeading.style.transform = 'translateY(0px)';
               }
               ticking = false;
             });
