@@ -62,6 +62,7 @@
       padding-bottom: 0.65rem;
       border-bottom: 2.5px solid #e0e0e0;
       transition: border-color 0.35s ease;
+      position: relative;
     }
 
     .top-bar-inner:hover {
@@ -102,6 +103,45 @@
 
     .domain-text:hover::after {
       transform: scaleX(1);
+    }
+
+    /* Language selector styling */
+    .lang-selector-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #f8f8f8;
+      padding: 0.35rem 0.7rem;
+      border-radius: 2rem;
+      border: 1px solid #e0e0e0;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .lang-selector-wrapper:hover {
+      background: #f0f0f0;
+      border-color: #aaa;
+    }
+
+    .globe-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+      color: #444;
+    }
+
+    .lang-select {
+      appearance: none;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #2a2a2a;
+      cursor: pointer;
+      padding-right: 0.2rem;
+      outline: none;
+      letter-spacing: 0.01em;
     }
 
     .right-placeholder {
@@ -468,6 +508,9 @@
       .upload-area {
         padding: 1.5rem 1rem;
       }
+      .lang-selector-wrapper {
+        padding: 0.25rem 0.5rem;
+      }
     }
   </style>
 </head>
@@ -476,7 +519,23 @@
   <div class="top-bar">
     <div class="top-bar-inner">
       <span class="domain-text">geminilogoremover.online</span>
-      <span class="right-placeholder" aria-hidden="true">placeholder</span>
+      
+      <!-- Language selector (right side) -->
+      <div class="lang-selector-wrapper">
+        <span class="globe-icon">🌐</span>
+        <select class="lang-select" id="langSelect" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="pt">Português</option>
+          <option value="hi">हिन्दी</option>
+          <option value="id">Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ru">Русский</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="vi">Tiếng Việt</option>
+        </select>
+      </div>
     </div>
   </div>
 
@@ -567,6 +626,65 @@
       const qualitySelect = document.getElementById("qualitySelect");
       const formatRadios = document.querySelectorAll('input[name="formatSelect"]');
       const resetBtn = document.getElementById("resetBtn");
+      const langSelect = document.getElementById("langSelect");
+
+      // ─────────────────────────────────────
+      // Language routing
+      // ─────────────────────────────────────
+      const langFolders = {
+        en: 'en',
+        es: 'es',
+        pt: 'pt',
+        hi: 'hi',
+        id: 'id',
+        ja: 'ja',
+        ru: 'ru',
+        fr: 'fr',
+        de: 'de',
+        vi: 'vi'
+      };
+
+      function getCurrentLanguageFromPath() {
+        const path = window.location.pathname;
+        for (const [code, folder] of Object.entries(langFolders)) {
+          if (path.startsWith(`/${folder}/`) || path === `/${folder}` || path === `/${folder}/index.html`) {
+            return code;
+          }
+        }
+        return 'en'; // default root maps to English
+      }
+
+      function setLangSelectValue(langCode) {
+        if (langSelect) {
+          langSelect.value = langCode;
+        }
+      }
+
+      function handleLanguageChange(selectedLang) {
+        const folder = langFolders[selectedLang];
+        if (!folder) return;
+        
+        // Construct new path: if English go to /en, else /{folder}
+        let newPath;
+        if (selectedLang === 'en') {
+          newPath = '/en/';
+        } else {
+          newPath = `/${folder}/`;
+        }
+        
+        // Avoid redirecting to the same path
+        if (window.location.pathname !== newPath && window.location.pathname !== newPath.replace(/\/$/, '')) {
+          window.location.href = newPath;
+        }
+      }
+
+      // Initialize language selector based on current URL
+      const currentLang = getCurrentLanguageFromPath();
+      setLangSelectValue(currentLang);
+
+      langSelect?.addEventListener('change', (e) => {
+        handleLanguageChange(e.target.value);
+      });
 
       // ─────────────────────────────────────
       // Watermark Algorithm Constants
