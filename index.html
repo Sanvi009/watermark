@@ -502,82 +502,101 @@
     }
 
     /* ───────────────────────────────────── */
-    /* Guide Section */
+    /* Guide Section - Step by Step Layout */
     /* ───────────────────────────────────── */
     .guide-section {
       width: 100%;
       max-width: 900px;
-      margin: 2.5rem auto 0 auto;
+      margin: 2.8rem auto 0 auto;
       padding: 0 1.2rem;
     }
 
     .guide-title {
-      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      font-size: clamp(1.8rem, 4.5vw, 2.3rem);
       font-weight: 700;
       color: #1e1e1e;
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       letter-spacing: -0.02em;
     }
 
-    .steps-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
+    .step-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2.8rem;
     }
 
-    @media (min-width: 700px) {
-      .steps-grid {
-        grid-template-columns: repeat(3, 1fr);
+    @media (min-width: 768px) {
+      .step-block {
+        flex-direction: row;
+        gap: 2.5rem;
+        align-items: flex-start;
+      }
+      
+      .step-block.reverse {
+        flex-direction: row-reverse;
       }
     }
 
-    .step-card {
-      background: #ffffff;
-      border: 1px solid #eaeaea;
-      border-radius: 16px;
-      padding: 1.5rem 1rem 1.2rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .step-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+    .step-text {
+      flex: 1 1 50%;
+      padding: 0.5rem 0;
     }
 
     .step-number {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: #888;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 1rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e1e1e;
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .step-description {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-image-wrapper {
+      flex: 1 1 50%;
+      background: #f9f9f9;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
 
     .step-image {
       width: 100%;
       height: auto;
-      border-radius: 12px;
-      margin-bottom: 1.2rem;
-      background: #f9f9f9;
-      border: 1px solid #eee;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
+      display: block;
+      object-fit: contain;
+      background: #fcfcfc;
     }
 
-    .step-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #1e1e1e;
-      margin-bottom: 0.5rem;
-    }
-
-    .step-desc {
-      font-size: 0.9rem;
-      color: #666;
-      line-height: 1.5;
+    @media (max-width: 767px) {
+      .step-block {
+        gap: 1rem;
+        margin-bottom: 2.2rem;
+      }
+      .step-heading {
+        font-size: 1.3rem;
+      }
+      .step-description {
+        font-size: 0.95rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -707,25 +726,41 @@
 
   <!-- Complete Guide Section -->
   <div class="guide-section">
-    <h2>Complete guide to remove Gemini watermark from image</h2>
-    <div class="steps-grid">
-      <div class="step-card">
+    <h2 class="guide-title">Complete guide to remove Gemini watermark from image</h2>
+    
+    <!-- Step 1 -->
+    <div class="step-block">
+      <div class="step-text">
         <div class="step-number">STEP 1</div>
-        <img class="step-image" src="./images/1.png" alt="Upload your image" loading="lazy">
-        <div class="step-title">Upload Your Image</div>
-        <p class="step-desc">Drag and drop or click to select the image with the Gemini watermark. Supports PNG, JPG, WebP.</p>
+        <h3 class="step-heading">Upload your watermarked image</h3>
+        <p class="step-description">Click the upload area or drag and drop your image directly into the box. Our tool works with PNG, JPG, and WebP formats. You can process up to 10 images at once for maximum efficiency.</p>
       </div>
-      <div class="step-card">
+      <div class="step-image-wrapper">
+        <img class="step-image" src="./images/1.png" alt="Upload interface showing image selection" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-block reverse">
+      <div class="step-text">
         <div class="step-number">STEP 2</div>
-        <img class="step-image" src="./images/2.png" alt="Automatic removal" loading="lazy">
-        <div class="step-title">Automatic Removal</div>
-        <p class="step-desc">Our tool instantly detects and removes the watermark while preserving the original quality.</p>
+        <h3 class="step-heading">Automatic watermark detection & removal</h3>
+        <p class="step-description">Once uploaded, our algorithm instantly scans the bottom-right corner and precisely removes the Gemini watermark. The original image quality is preserved, and you can adjust output format and compression if needed.</p>
       </div>
-      <div class="step-card">
+      <div class="step-image-wrapper">
+        <img class="step-image" src="./images/2.png" alt="Processing screen showing watermark removal" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-block">
+      <div class="step-text">
         <div class="step-number">STEP 3</div>
-        <img class="step-image" src="./images/3.png" alt="Download clean image" loading="lazy">
-        <div class="step-title">Download Clean Image</div>
-        <p class="step-desc">Preview the result and download your watermark‑free image individually or as a ZIP.</p>
+        <h3 class="step-heading">Download your clean image</h3>
+        <p class="step-description">Preview the result side by side with the original. Download individual images or grab everything as a ZIP file. Your images are processed locally – we never store them on any server.</p>
+      </div>
+      <div class="step-image-wrapper">
+        <img class="step-image" src="./images/3.png" alt="Download buttons and result preview" loading="lazy">
       </div>
     </div>
   </div>
