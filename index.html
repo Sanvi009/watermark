@@ -254,6 +254,28 @@
       background: #444;
     }
 
+    /* Legal text below upload area */
+    .legal-text {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    .legal-text a {
+      color: #2a2a2a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .legal-text a:hover {
+      color: #000;
+      text-decoration: none;
+    }
+
     /* Status */
     .status {
       margin-top: 0.8rem;
@@ -554,6 +576,14 @@
       <p>Batch process up to 10 files (PNG, WebP, JPG)</p>
       <div class="upload-meta" id="fileName">No file selected</div>
       <button type="button" class="upload-btn">Select Files</button>
+    </div>
+
+    <!-- Legal text added below upload area -->
+    <div class="legal-text">
+      By using our service you accept our 
+      <a href="/term" target="_blank" rel="noopener noreferrer">Terms of Service</a> 
+      and 
+      <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
     </div>
 
     <div class="status" id="status" aria-live="polite"></div>
