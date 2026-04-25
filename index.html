@@ -82,7 +82,6 @@
       cursor: default;
     }
 
-    /* Subtle dot accent after domain */
     .domain-text::after {
       content: '';
       position: absolute;
@@ -142,13 +141,6 @@
       padding-right: 0.2rem;
       outline: none;
       letter-spacing: 0.01em;
-    }
-
-    .right-placeholder {
-      font-size: clamp(0.85rem, 2vw, 1rem);
-      color: transparent;
-      user-select: none;
-      white-space: nowrap;
     }
 
     /* Hero heading section */
@@ -254,7 +246,7 @@
       background: #444;
     }
 
-    /* Legal text below upload area */
+    /* Legal text */
     .legal-text {
       text-align: center;
       margin-top: 1rem;
@@ -373,7 +365,6 @@
       flex-wrap: wrap;
     }
 
-    /* Buttons */
     .btn {
       appearance: none;
       border: 1px solid #ddd;
@@ -510,6 +501,85 @@
       display: none !important;
     }
 
+    /* ───────────────────────────────────── */
+    /* Guide Section */
+    /* ───────────────────────────────────── */
+    .guide-section {
+      width: 100%;
+      max-width: 900px;
+      margin: 2.5rem auto 0 auto;
+      padding: 0 1.2rem;
+    }
+
+    .guide-title {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: #1e1e1e;
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 700px) {
+      .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .step-card {
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 16px;
+      padding: 1.5rem 1rem 1.2rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+    }
+
+    .step-number {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .step-image {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 1.2rem;
+      background: #f9f9f9;
+      border: 1px solid #eee;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .step-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1e1e1e;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-desc {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
     @media (max-width: 480px) {
       .top-bar {
         padding: 1rem 1rem 0.5rem 1rem;
@@ -532,6 +602,9 @@
       }
       .lang-selector-wrapper {
         padding: 0.25rem 0.5rem;
+      }
+      .guide-section {
+        padding: 0 1rem;
       }
     }
   </style>
@@ -578,7 +651,7 @@
       <button type="button" class="upload-btn">Select Files</button>
     </div>
 
-    <!-- Legal text added below upload area -->
+    <!-- Legal text -->
     <div class="legal-text">
       By using our service you accept our 
       <a href="/term" target="_blank" rel="noopener noreferrer">Terms of Service</a> 
@@ -632,6 +705,31 @@
     </div>
   </div>
 
+  <!-- Complete Guide Section -->
+  <div class="guide-section">
+    <h2>Complete guide to remove Gemini watermark from image</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">STEP 1</div>
+        <img class="step-image" src="./images/1.png" alt="Upload your image" loading="lazy">
+        <div class="step-title">Upload Your Image</div>
+        <p class="step-desc">Drag and drop or click to select the image with the Gemini watermark. Supports PNG, JPG, WebP.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">STEP 2</div>
+        <img class="step-image" src="./images/2.png" alt="Automatic removal" loading="lazy">
+        <div class="step-title">Automatic Removal</div>
+        <p class="step-desc">Our tool instantly detects and removes the watermark while preserving the original quality.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">STEP 3</div>
+        <img class="step-image" src="./images/3.png" alt="Download clean image" loading="lazy">
+        <div class="step-title">Download Clean Image</div>
+        <p class="step-desc">Preview the result and download your watermark‑free image individually or as a ZIP.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js">
   </script>
@@ -681,7 +779,7 @@
             return code;
           }
         }
-        return 'en'; // default root maps to English
+        return 'en';
       }
 
       function setLangSelectValue(langCode) {
@@ -693,22 +791,17 @@
       function handleLanguageChange(selectedLang) {
         const folder = langFolders[selectedLang];
         if (!folder) return;
-        
-        // Construct new path: if English go to /en, else /{folder}
         let newPath;
         if (selectedLang === 'en') {
           newPath = '/en/';
         } else {
           newPath = `/${folder}/`;
         }
-        
-        // Avoid redirecting to the same path
         if (window.location.pathname !== newPath && window.location.pathname !== newPath.replace(/\/$/, '')) {
           window.location.href = newPath;
         }
       }
 
-      // Initialize language selector based on current URL
       const currentLang = getCurrentLanguageFromPath();
       setLangSelectValue(currentLang);
 
@@ -770,9 +863,6 @@
         }
       }
 
-      // ─────────────────────────────────────
-      // Load watermark maps
-      // ─────────────────────────────────────
       const bg48 = new Image();
       const bg96 = new Image();
       bg48.src = "./assets/bg_48.png";
@@ -808,9 +898,6 @@
         return calculateAlphaMap(imageData);
       }
 
-      // ─────────────────────────────────────
-      // Helpers
-      // ─────────────────────────────────────
       function setStatus(text, type = "info") {
         statusEl.textContent = text;
         statusEl.classList.toggle("error", type === "error");
@@ -937,9 +1024,6 @@
         return img;
       }
 
-      // ─────────────────────────────────────
-      // Batch State
-      // ─────────────────────────────────────
       let batchItems = [];
       let processedCount = 0;
       let failedCount = 0;
@@ -1188,12 +1272,8 @@
         }
       }
 
-      // ─────────────────────────────────────
-      // Event Listeners
-      // ─────────────────────────────────────
       uploadArea.addEventListener("click", () => fileInput.click());
-      uploadArea.addEventListener("dragover", (e) => { e.preventDefault();
-        uploadArea.classList.add("dragover"); });
+      uploadArea.addEventListener("dragover", (e) => { e.preventDefault(); uploadArea.classList.add("dragover"); });
       uploadArea.addEventListener("dragleave", () => { uploadArea.classList.remove("dragover"); });
       uploadArea.addEventListener("drop", (e) => {
         e.preventDefault();
@@ -1202,8 +1282,7 @@
         if (files.length) handleFiles(files);
       });
       uploadArea.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault();
-          fileInput.click(); }
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fileInput.click(); }
       });
       fileInput.addEventListener("change", () => {
         const files = Array.from(fileInput.files || []);
@@ -1214,10 +1293,8 @@
       qualitySelect?.addEventListener("change", reprocessCurrentBatch);
       formatRadios?.forEach((radio) => radio.addEventListener("change", reprocessCurrentBatch));
 
-      // Start clean
       resetUI();
 
-      // Subtle scroll effect for the top bar line
       window.addEventListener('DOMContentLoaded', () => {
         const topBarInner = document.querySelector('.top-bar-inner');
         const heroHeading = document.querySelector('.hero-heading h1');
