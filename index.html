@@ -587,6 +587,34 @@
     }
 
     /* ───────────────────────────────────── */
+    /* Informational Section (before FAQ) */
+    /* ───────────────────────────────────── */
+    .info-section {
+      width: 100%;
+      max-width: 800px;
+      margin: 3rem auto 0 auto;
+      padding: 0 1.2rem;
+    }
+
+    .info-block {
+      margin-bottom: 2.2rem;
+    }
+
+    .info-block h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e1e1e;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    .info-block p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ───────────────────────────────────── */
     /* FAQ Section */
     /* ───────────────────────────────────── */
     .faq-section {
@@ -655,6 +683,9 @@
       .faq-question {
         font-size: 1rem;
       }
+      .info-block h2 {
+        font-size: 1.3rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -684,6 +715,9 @@
         padding: 0 1rem;
       }
       .faq-section {
+        padding: 0 1rem;
+      }
+      .info-section {
         padding: 0 1rem;
       }
     }
@@ -823,6 +857,22 @@
       <div class="step-image-wrapper">
         <img class="step-image" src="./images/3.png" alt="Download buttons and result preview" loading="lazy">
       </div>
+    </div>
+  </div>
+
+  <!-- Informational Section (before FAQ) -->
+  <div class="info-section">
+    <div class="info-block">
+      <h2>Why choose our watermark remover?</h2>
+      <p>Our tool stands out because it operates entirely within your browser. That means no uploads to external servers, no privacy concerns, and instant results. The algorithm is fine-tuned specifically for the Gemini watermark pattern, ensuring clean removal without leaving artifacts or damaging the surrounding image area. Whether you're a designer, content creator, or just someone who needs a quick fix, this solution is built for speed and simplicity.</p>
+    </div>
+    <div class="info-block">
+      <h2>How does the removal process work?</h2>
+      <p>When you provide an image, the tool analyzes the bottom-right region where the Gemini logo typically appears. Using a pre-computed alpha mask, it reverses the watermark blending calculation pixel by pixel. The original pixel values are reconstructed mathematically, which means the output is as close to the unwatermarked original as possible. You can even fine-tune the output by selecting different quality levels or converting between PNG, JPEG, and WebP formats.</p>
+    </div>
+    <div class="info-block">
+      <h2>Is it safe to use on any device?</h2>
+      <p>Yes, the entire workflow is client-side. Your images never leave your computer or phone. We don't use cookies, trackers, or any form of data collection. The tool is compatible with all modern browsers including Chrome, Firefox, Safari, and Edge. It also works on mobile devices, so you can remove watermarks on the go. Just make sure you have the rights to modify the images you're processing.</p>
     </div>
   </div>
 
