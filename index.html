@@ -9,10 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>Gemini Watermark Remover</title>
   
-  <!-- Special font for domain text -->
+  <!-- Special fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Cookie&display=swap" rel="stylesheet">
   
   <style>
     /* Clean reset */
@@ -73,39 +73,23 @@
       border-bottom-color: #888;
     }
 
-    /* Special font for domain - Space Grotesk */
+    /* Cookie script font for domain */
     .domain-text {
-      font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
-      font-size: clamp(0.95rem, 2.2vw, 1.15rem);
-      font-weight: 600;
+      font-family: 'Cookie', cursive;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 400;
       color: #2a2a2a;
       letter-spacing: 0.02em;
       white-space: nowrap;
       transition: all 0.25s ease;
-      position: relative;
       cursor: default;
-    }
-
-    .domain-text::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, #2a2a2a 0%, #888 100%);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
+      line-height: 1;
+      margin-top: 0.2rem;
     }
 
     .domain-text:hover {
       color: #000;
-      letter-spacing: 0.04em;
-    }
-
-    .domain-text:hover::after {
-      transform: scaleX(1);
+      transform: scale(1.02);
     }
 
     /* Language selector styling */
@@ -690,6 +674,9 @@
       .info-block h2 {
         font-size: 1.3rem;
       }
+      .domain-text {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+      }
     }
 
     @media (max-width: 480px) {
@@ -700,7 +687,7 @@
         gap: 1rem;
       }
       .domain-text {
-        font-size: 0.9rem;
+        font-size: 1.4rem;
         letter-spacing: 0.01em;
       }
       .hero-heading {
