@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+
+
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GGNFN35EXC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GGNFN35EXC');
+</script>
+
+
+
+  
+  <meta charset="UTF-8">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Gemini Watermark Remover - मुफ़्त और बिना लॉगिन के</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Gemini से बनी इमेज से वॉटरमार्क हटाएँ, बिल्कुल मुफ़्त और अनलिमिटेड। एक साथ कई इमेज से हटाया जा सकता है। लॉगिन की ज़रूरत नहीं।">
+  <meta name="keywords" content="gemini वॉटरमार्क हटाने वाला, gemini वॉटरमार्क साफ करें, gemini लोगो रिमूवर, इमेज से वॉटरमार्क हटाएँ, फ्री वॉटरमार्क रिमूवर, gemini ai वॉटरमार्क">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://geminilogoremover.online/hi/">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Gemini Watermark Remover - Gemini का वॉटरमार्क मुफ़्त में हटाएँ">
+  <meta property="og:description" content="Gemini के वॉटरमार्क को तुरंत और मुफ़्त में हटाएँ। सर्वर पर कुछ भी अपलोड नहीं होता, एक बार में 10 इमेज प्रोसेस करें, PNG, JPG, WebP सपोर्ट करता है। अभी आज़माएँ!">
+  <meta property="og:url" content="https://geminilogoremover.online/hi/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://geminilogoremover.online/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Gemini Watermark Remover">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gemini Watermark Remover - मुफ़्त ऑनलाइन टूल">
+  <meta name="twitter:description" content="Gemini का वॉटरमार्क तुरंत हटाएँ। मुफ़्त, तेज़ और प्राइवेट। कुछ भी अपलोड करने की ज़रूरत नहीं।">
+  <meta name="twitter:image" content="https://geminilogoremover.online/images/og-image.png">
+  
+  <!-- Special fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Cookie&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Clean reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background-color: #ffffff;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.2;
+      overflow-x: hidden;
+      padding-bottom: 2rem;
+    }
+
+    /* Top bar container */
+    .top-bar {
+      width: 100%;
+      padding: 1.5rem 2rem 0.8rem 2rem;
+      animation: fadeSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    @keyframes fadeSlideDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .top-bar-inner {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 2.5px solid #e0e0e0;
+      transition: border-color 0.35s ease;
+      position: relative;
+    }
+
+    .top-bar-inner:hover {
+      border-bottom-color: #888;
+    }
+
+    /* Cookie script font for domain */
+    .domain-text {
+      font-family: 'Cookie', cursive;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 400;
+      color: #2a2a2a;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      cursor: default;
+      line-height: 1;
+      margin-top: 0.2rem;
+    }
+
+    .domain-text:hover {
+      color: #000;
+      transform: scale(1.02);
+    }
+
+    /* Language selector styling */
+    .lang-selector-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #f8f8f8;
+      padding: 0.35rem 0.7rem;
+      border-radius: 2rem;
+      border: 1px solid #e0e0e0;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .lang-selector-wrapper:hover {
+      background: #f0f0f0;
+      border-color: #aaa;
+    }
+
+    .globe-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+      color: #444;
+    }
+
+    .lang-select {
+      appearance: none;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #2a2a2a;
+      cursor: pointer;
+      padding-right: 0.2rem;
+      outline: none;
+      letter-spacing: 0.01em;
+    }
+
+    /* Hero heading section */
+    .hero-heading {
+      width: 100%;
+      text-align: center;
+      padding: 1.8rem 1.2rem 0.5rem 1.2rem;
+      animation: fadeIn 0.5s ease 0.2s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .hero-heading h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e1e1e 0%, #3a3a3a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      transition: transform 0.2s ease;
+    }
+
+    .hero-heading h1:hover {
+      transform: translateY(-1px);
+    }
+
+    /* Tool container */
+    .tool-container {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+      animation: fadeIn 0.5s ease 0.4s forwards;
+      opacity: 0;
+    }
+
+    /* Upload area */
+    .upload-area {
+      border: 2px dashed #d0d0d0;
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background: #fafafa;
+      margin-top: 1rem;
+    }
+
+    .upload-area:hover {
+      border-color: #888;
+      background: #f5f5f5;
+    }
+
+    .upload-area.dragover {
+      border-color: #444;
+      background: #f0f0f0;
+    }
+
+    .upload-area .icon {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+
+    .upload-area h3 {
+      font-size: 1.1rem;
+      color: #2a2a2a;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .upload-area p {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+
+    .upload-meta {
+      font-size: 0.8rem;
+      color: #999;
+      margin-bottom: 1rem;
+    }
+
+    .upload-btn {
+      padding: 10px 28px;
+      background: #2a2a2a;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+
+    .upload-btn:hover {
+      background: #444;
+    }
+
+    /* Legal text */
+    .legal-text {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    .legal-text a {
+      color: #2a2a2a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .legal-text a:hover {
+      color: #000;
+      text-decoration: none;
+    }
+
+    /* Status */
+    .status {
+      margin-top: 0.8rem;
+      min-height: 22px;
+      color: #666;
+      font-size: 0.9rem;
+      text-align: center;
+      white-space: pre-line;
+    }
+
+    .status.error {
+      color: #d44;
+    }
+
+    /* Batch bar */
+    .batch-bar {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 16px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      border: 1px solid #e8e8e8;
+    }
+
+    .batch-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .progress-text {
+      color: #555;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .field-label {
+      font-size: 0.75rem;
+      color: #777;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    .select-style {
+      appearance: none;
+      background: #fff;
+      border: 1px solid #ddd;
+      color: #333;
+      border-radius: 6px;
+      padding: 7px 12px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .format-group {
+      border: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .format-radios {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .format-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .format-label input {
+      width: 15px;
+      height: 15px;
+      accent-color: #333;
+      cursor: pointer;
+    }
+
+    .batch-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #333;
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #f5f5f5;
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn.primary {
+      border: none;
+      background: #2a2a2a;
+      color: #fff;
+    }
+
+    .btn.primary:hover:not(:disabled) {
+      background: #444;
+    }
+
+    .footer-actions {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    /* Thumbnail grid */
+    .thumb-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 700px) {
+      .thumb-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .thumb-card {
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fafafa;
+    }
+
+    .thumb-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 14px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .thumb-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #2a2a2a;
+    }
+
+    .thumb-status {
+      color: #888;
+      font-size: 0.72rem;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #f0f0f0;
+    }
+
+    .thumb-status.error {
+      color: #d44;
+      background: #fde8e8;
+    }
+
+    .thumb-body {
+      padding: 10px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 700px) {
+      .thumb-body {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+
+    .thumb-row-label {
+      font-size: 0.7rem;
+      color: #999;
+      margin: 0 0 4px;
+      font-weight: 600;
+      grid-column: 1 / -1;
+    }
+
+    .thumb-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      background: #f5f5f5;
+      border: 1px solid #eee;
+    }
+
+    .thumb-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      padding: 10px 14px;
+      border-top: 1px solid #eee;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ───────────────────────────────────── */
+    /* Guide Section - Step by Step Layout */
+    /* ───────────────────────────────────── */
+    .guide-section {
+      width: 100%;
+      max-width: 900px;
+      margin: 2.8rem auto 0 auto;
+      padding: 0 1.2rem;
+    }
+
+    .guide-title {
+      font-size: clamp(1.8rem, 4.5vw, 2.3rem);
+      font-weight: 700;
+      color: #1e1e1e;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .step-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2.8rem;
+    }
+
+    @media (min-width: 768px) {
+      .step-block {
+        flex-direction: row;
+        gap: 2.5rem;
+        align-items: flex-start;
+      }
+      
+      .step-block.reverse {
+        flex-direction: row-reverse;
+      }
+    }
+
+    .step-text {
+      flex: 1 1 50%;
+      padding: 0.5rem 0;
+    }
+
+    .step-number {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e1e1e;
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .step-description {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-image-wrapper {
+      flex: 1 1 50%;
+      background: #f9f9f9;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .step-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: #fcfcfc;
+    }
+
+    /* ───────────────────────────────────── */
+    /* Informational Section (before FAQ) */
+    /* ───────────────────────────────────── */
+    .info-section {
+      width: 100%;
+      max-width: 800px;
+      margin: 3rem auto 0 auto;
+      padding: 0 1.2rem;
+    }
+
+    .info-block {
+      margin-bottom: 2.2rem;
+    }
+
+    .info-block h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e1e1e;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    .info-block p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ───────────────────────────────────── */
+    /* FAQ Section */
+    /* ───────────────────────────────────── */
+    .faq-section {
+      width: 100%;
+      max-width: 800px;
+      margin: 3rem auto 1rem auto;
+      padding: 0 1.2rem;
+    }
+
+    .faq-title {
+      font-size: clamp(1.8rem, 4.5vw, 2.3rem);
+      font-weight: 700;
+      color: #1e1e1e;
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      border: 1px solid #e8e8e8;
+      border-radius: 14px;
+      background: #fafafa;
+      padding: 1.2rem 1.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: #ccc;
+      background: #f7f7f7;
+    }
+
+    .faq-question {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e1e1e;
+      margin-bottom: 0.6rem;
+      line-height: 1.4;
+    }
+
+    .faq-answer {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 767px) {
+      .step-block {
+        gap: 1rem;
+        margin-bottom: 2.2rem;
+      }
+      .step-heading {
+        font-size: 1.3rem;
+      }
+      .step-description {
+        font-size: 0.95rem;
+      }
+      .faq-item {
+        padding: 1rem 1.2rem;
+      }
+      .faq-question {
+        font-size: 1rem;
+      }
+      .info-block h2 {
+        font-size: 1.3rem;
+      }
+      .domain-text {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .top-bar {
+        padding: 1rem 1rem 0.5rem 1rem;
+      }
+      .top-bar-inner {
+        gap: 1rem;
+      }
+      .domain-text {
+        font-size: 1.4rem;
+        letter-spacing: 0.01em;
+      }
+      .hero-heading {
+        padding: 1.2rem 0.8rem 0.3rem 0.8rem;
+      }
+      .hero-heading h1 {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+      }
+      .upload-area {
+        padding: 1.5rem 1rem;
+      }
+      .lang-selector-wrapper {
+        padding: 0.25rem 0.5rem;
+      }
+      .guide-section {
+        padding: 0 1rem;
+      }
+      .faq-section {
+        padding: 0 1rem;
+      }
+      .info-section {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top bar with domain and line -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span class="domain-text">geminilogoremover.online</span>
+      
+      <!-- Language selector (right side) -->
+      <div class="lang-selector-wrapper">
+        <span class="globe-icon">🌐</span>
+        <select class="lang-select" id="langSelect" aria-label="भाषा चुनें">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="pt">Português</option>
+          <option value="hi" selected>हिन्दी</option>
+          <option value="id">Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ru">Русский</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="vi">Tiếng Việt</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero heading -->
+  <div class="hero-heading">
+    <h1>मुफ़्त gemini वॉटरमार्क हटाने वाला टूल</h1>
+  </div>
+
+  <!-- Tool Container -->
+  <div class="tool-container" id="toolContainer">
+    <!-- Upload Area -->
+    <div class="upload-area" id="uploadArea" role="button" tabindex="0">
+      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp" multiple hidden>
+      <span class="icon">📂</span>
+      <h3>अपनी इमेज यहाँ ड्रैग और ड्रॉप करें</h3>
+      <p>एक साथ 10 फ़ाइलें प्रोसेस करें (PNG, WebP, JPG)</p>
+      <div class="upload-meta" id="fileName">कोई फ़ाइल नहीं चुनी गई</div>
+      <button type="button" class="upload-btn">फ़ाइलें चुनें</button>
+    </div>
+
+    <!-- Legal text -->
+    <div class="legal-text">
+      हमारी सेवा का उपयोग करके आप हमारी 
+      <a href="/term" target="_blank" rel="noopener noreferrer">सेवा की शर्तें</a> 
+      और 
+      <a href="/privacy" target="_blank" rel="noopener noreferrer">गोपनीयता नीति</a> 
+      स्वीकार करते हैं
+    </div>
+
+    <div class="status" id="status" aria-live="polite"></div>
+
+    <!-- Batch Bar -->
+    <div class="batch-bar hidden" id="batchBar">
+      <div class="batch-left">
+        <div class="progress-text" id="progressText">प्रोसेस हो रहा है 0 में से 0…</div>
+        <label>
+          <span class="field-label">क्वालिटी</span>
+          <select id="qualitySelect" class="select-style">
+            <option value="1" selected>ओरिजिनल (100%)</option>
+            <option value="0.85">मीडियम (85%)</option>
+            <option value="0.70">कंप्रेस्ड (70%)</option>
+          </select>
+        </label>
+        <fieldset class="format-group" role="group" aria-label="आउटपुट फॉर्मेट">
+          <span class="field-label">फॉर्मेट</span>
+          <div class="format-radios">
+            <label class="format-label">
+              <input type="radio" name="formatSelect" value="png" checked>
+              <span>PNG</span>
+            </label>
+            <label class="format-label">
+              <input type="radio" name="formatSelect" value="jpeg">
+              <span>JPEG</span>
+            </label>
+            <label class="format-label">
+              <input type="radio" name="formatSelect" value="webp">
+              <span>WebP</span>
+            </label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="batch-actions">
+        <button id="downloadAllBtn" class="btn primary" type="button" disabled>सभी डाउनलोड करें (ZIP)</button>
+      </div>
+    </div>
+
+    <!-- Thumbnail Grid -->
+    <div id="thumbGrid" class="thumb-grid hidden" aria-live="polite"></div>
+
+    <!-- Footer Actions -->
+    <div class="footer-actions">
+      <button id="resetBtn" class="btn" type="button" disabled>रीसेट करें</button>
+    </div>
+  </div>
+
+  <!-- Complete Guide Section -->
+  <div class="guide-section">
+    <h2 class="guide-title">Gemini AI के वॉटरमार्क को इमेज से कैसे साफ करें</h2>
+    
+    <!-- Step 1 -->
+    <div class="step-block">
+      <div class="step-text">
+        <div class="step-number">स्टेप 1</div>
+        <h3 class="step-heading">अपनी वॉटरमार्क वाली इमेज अपलोड करें</h3>
+        <p class="step-description">अपलोड एरिया पर क्लिक करें या अपनी इमेज को सीधे बॉक्स में ड्रैग और ड्रॉप करें। हमारा टूल PNG, JPG और WebP फॉर्मेट के साथ काम करता है। आप ज़्यादा से ज़्यादा एफिशिएंसी के लिए एक बार में 10 इमेज तक प्रोसेस कर सकते हैं।</p>
+      </div>
+      <div class="step-image-wrapper">
+        <img class="step-image" src="/images/1.png" alt="इमेज सेलेक्शन दिखाता अपलोड इंटरफ़ेस" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-block reverse">
+      <div class="step-text">
+        <div class="step-number">स्टेप 2</div>
+        <h3 class="step-heading">आउटपुट ऑप्शन चुनें</h3>
+        <p class="step-description">आप डाउनलोड क्वालिटी और इमेज फॉर्मेट भी चुन सकते हैं जैसे JPEG, WebP, PNG</p>
+      </div>
+      <div class="step-image-wrapper">
+        <img class="step-image" src="/images/2.png" alt="वॉटरमार्क हटाने की प्रोसेस दिखाती स्क्रीन" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-block">
+      <div class="step-text">
+        <div class="step-number">स्टेप 3</div>
+        <h3 class="step-heading">अपनी साफ इमेज डाउनलोड करें</h3>
+        <p class="step-description">आप इमेज को एक-एक करके या सभी को एक ZIP फ़ाइल में डाउनलोड कर सकते हैं।</p>
+      </div>
+      <div class="step-image-wrapper">
+        <img class="step-image" src="/images/3.png" alt="डाउनलोड बटन और रिज़ल्ट प्रीव्यू" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- Informational Section (before FAQ) -->
+  <div class="info-section">
+    <div class="info-block">
+      <h2>हमारा वॉटरमार्क रिमूवर क्यों चुनें?</h2>
+      <p>हमारा टूल इसलिए खास है क्योंकि यह पूरी तरह आपके ब्राउज़र में काम करता है। मतलब, किसी बाहरी सर्वर पर कुछ भी अपलोड नहीं होता, प्राइवेसी की कोई चिंता नहीं, और रिज़ल्ट तुरंत मिलता है। एल्गोरिदम को खासतौर पर Gemini वॉटरमार्क पैटर्न के लिए फाइन-ट्यून किया गया है, ताकि सफाई ऐसी हो कि कोई आर्टिफैक्ट न बचे और आसपास का एरिया खराब न हो। चाहे आप डिज़ाइनर हों, कंटेंट क्रिएटर हों, या बस किसी को झटपट फिक्स चाहिए - यह सॉल्यूशन स्पीड और सादगी के लिए बनाया गया है।</p>
+    </div>
+    <div class="info-block">
+      <h2>हटाने की प्रक्रिया कैसे काम करती है?</h2>
+      <p>जब आप कोई इमेज देते हैं, तो टूल नीचे-दाएँ वाले हिस्से को एनालाइज़ करता है जहाँ आमतौर पर Gemini का लोगो दिखता है। पहले से कैलकुलेट किए गए अल्फा मास्क का उपयोग करके, यह वॉटरमार्क की ब्लेंडिंग कैलकुलेशन को पिक्सल-दर-पिक्सल रिवर्स करता है। ओरिजिनल पिक्सल वैल्यू को मैथमेटिकली रिकंस्ट्रक्ट किया जाता है, जिसका मतलब है कि आउटपुट बिना वॉटरमार्क वाली ओरिजिनल इमेज के जितना हो सके उतना करीब होता है। आप अलग-अलग क्वालिटी लेवल चुनकर या PNG, JPEG और WebP फॉर्मेट के बीच कन्वर्ट करके आउटपुट को और बेहतर बना सकते हैं।</p>
+    </div>
+    <div class="info-block">
+      <h2>क्या यह किसी भी डिवाइस पर सुरक्षित है?</h2>
+      <p>हाँ, पूरी प्रक्रिया क्लाइंट-साइड पर चलती है। आपकी इमेज आपके कंप्यूटर या फ़ोन से बाहर नहीं जातीं। हम कुकीज़, ट्रैकर्स या किसी भी तरह का डेटा कलेक्शन नहीं करते। यह टूल सभी मॉडर्न ब्राउज़र जैसे Chrome, Firefox, Safari और Edge के साथ कम्पैटिबल है। यह मोबाइल डिवाइस पर भी काम करता है, तो आप चलते-फिरते भी वॉटरमार्क हटा सकते हैं। बस सुनिश्चित करें कि जिन इमेज को आप प्रोसेस कर रहे हैं, उन्हें मॉडिफाई करने का अधिकार आपके पास है।</p>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <h2 class="faq-title">अक्सर पूछे जाने वाले सवाल</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">क्या यह टूल वाकई मुफ़्त है?</div>
+        <div class="faq-answer">बिल्कुल! हमारा Gemini वॉटरमार्क रिमूवर पूरी तरह मुफ़्त है। कोई छिपी फीस नहीं, कोई सब्सक्रिप्शन प्लान नहीं, और न ही पेवॉल के पीछे बंद प्रीमियम फीचर्स। आप जितनी चाहें उतनी इमेज प्रोसेस कर सकते हैं।</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">क्या वॉटरमार्क हटाने से मेरी इमेज की क्वालिटी पर असर पड़ेगा?</div>
+        <div class="faq-answer">नहीं, हमारा एल्गोरिदम आपकी इमेज की ओरिजिनल क्वालिटी बनाए रखने के लिए डिज़ाइन किया गया है। आप अपनी ज़रूरत के हिसाब से आउटपुट क्वालिटी (100% ओरिजिनल तक) और फॉर्मेट (PNG, JPEG, WebP) भी चुन सकते हैं।</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">क्या मेरी इमेज किसी सर्वर पर अपलोड होती हैं?</div>
+        <div class="faq-answer">नहीं, सब कुछ आपके ब्राउज़र में लोकली होता है। आपकी इमेज कभी आपके डिवाइस से बाहर नहीं जातीं, जिससे पूरी प्राइवेसी और सुरक्षा बनी रहती है। हम आपकी कोई भी फ़ाइल स्टोर, देख या शेयर नहीं करते।</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">कौन से इमेज फॉर्मेट सपोर्टेड हैं?</div>
+        <div class="faq-answer">फिलहाल हम PNG, JPEG और WebP फॉर्मेट सपोर्ट करते हैं। आप इनमें से किसी भी फॉर्मेट में इमेज अपलोड कर सकते हैं और प्रोसेसिंग के बाद अपना मनपसंद आउटपुट फॉर्मेट चुन सकते हैं।</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">क्या मैं एक साथ कई इमेज प्रोसेस कर सकता हूँ?</div>
+        <div class="faq-answer">हाँ! आप एक बार में 10 इमेज तक बैच प्रोसेस कर सकते हैं। बस कई फ़ाइलें सेलेक्ट या ड्रैग करें, और वे समानांतर रूप से प्रोसेस होंगी। इसके बाद आप उन्हें अलग-अलग या ZIP आर्काइव में डाउनलोड कर सकते हैं।</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- External Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/upng-js/2.1.0/UPNG.min.js">
+  </script>
+
+  <script>
+    (function() {
+      // ─────────────────────────────────────
+      // DOM Elements
+      // ─────────────────────────────────────
+      const uploadArea = document.getElementById("uploadArea");
+      const fileInput = document.getElementById("fileInput");
+      const fileNameEl = document.getElementById("fileName");
+      const statusEl = document.getElementById("status");
+      const batchBar = document.getElementById("batchBar");
+      const progressText = document.getElementById("progressText");
+      const thumbGrid = document.getElementById("thumbGrid");
+      const downloadAllBtn = document.getElementById("downloadAllBtn");
+      const qualitySelect = document.getElementById("qualitySelect");
+      const formatRadios = document.querySelectorAll('input[name="formatSelect"]');
+      const resetBtn = document.getElementById("resetBtn");
+      const langSelect = document.getElementById("langSelect");
+
+      // ─────────────────────────────────────
+      // Language routing
+      // ─────────────────────────────────────
+      const langFolders = {
+        en: 'en',
+        es: 'es',
+        pt: 'pt',
+        hi: 'hi',
+        id: 'id',
+        ja: 'ja',
+        ru: 'ru',
+        fr: 'fr',
+        de: 'de',
+        vi: 'vi'
+      };
+
+      function getCurrentLanguageFromPath() {
+        const path = window.location.pathname;
+        for (const [code, folder] of Object.entries(langFolders)) {
+          if (path.startsWith(`/${folder}/`) || path === `/${folder}` || path === `/${folder}/index.html`) {
+            return code;
+          }
+        }
+        return 'en';
+      }
+
+      function setLangSelectValue(langCode) {
+        if (langSelect) {
+          langSelect.value = langCode;
+        }
+      }
+
+      function handleLanguageChange(selectedLang) {
+        const folder = langFolders[selectedLang];
+        if (!folder) return;
+        let newPath;
+        if (selectedLang === 'en') {
+          newPath = '/en/';
+        } else {
+          newPath = `/${folder}/`;
+        }
+        if (window.location.pathname !== newPath && window.location.pathname !== newPath.replace(/\/$/, '')) {
+          window.location.href = newPath;
+        }
+      }
+
+      const currentLang = getCurrentLanguageFromPath();
+      setLangSelectValue(currentLang);
+
+      langSelect?.addEventListener('change', (e) => {
+        handleLanguageChange(e.target.value);
+      });
+
+      // ─────────────────────────────────────
+      // Watermark Algorithm Constants
+      // ─────────────────────────────────────
+      const ALPHA_THRESHOLD = 0.002;
+      const MAX_ALPHA = 0.99;
+      const LOGO_VALUE = 255;
+
+      function detectWatermarkConfig(w, h) {
+        if (w > 1024 && h > 1024) {
+          return { logoSize: 96, marginRight: 64, marginBottom: 64 };
+        }
+        return { logoSize: 48, marginRight: 32, marginBottom: 32 };
+      }
+
+      function calculateWatermarkPosition(w, h, config) {
+        const { logoSize, marginRight, marginBottom } = config;
+        return {
+          x: w - marginRight - logoSize,
+          y: h - marginBottom - logoSize,
+          width: logoSize,
+          height: logoSize,
+        };
+      }
+
+      function calculateAlphaMap(imageData) {
+        const { width, height, data } = imageData;
+        const alphaMap = new Float32Array(width * height);
+        for (let i = 0; i < alphaMap.length; i++) {
+          const idx = i * 4;
+          const maxChannel = Math.max(data[idx], data[idx + 1], data[idx + 2]);
+          alphaMap[i] = maxChannel / 255.0;
+        }
+        return alphaMap;
+      }
+
+      function removeWatermark(imageData, alphaMap, position) {
+        const { x, y, width, height } = position;
+        for (let row = 0; row < height; row++) {
+          for (let col = 0; col < width; col++) {
+            const imgIdx = ((y + row) * imageData.width + (x + col)) * 4;
+            const alphaIdx = row * width + col;
+            let alpha = alphaMap[alphaIdx];
+            if (alpha < ALPHA_THRESHOLD) continue;
+            alpha = Math.min(alpha, MAX_ALPHA);
+            const oneMinusAlpha = 1.0 - alpha;
+            for (let c = 0; c < 3; c++) {
+              const watermarked = imageData.data[imgIdx + c];
+              const original = (watermarked - alpha * LOGO_VALUE) / oneMinusAlpha;
+              imageData.data[imgIdx + c] = Math.max(0, Math.min(255, Math.round(original)));
+            }
+          }
+        }
+      }
+
+      const bg48 = new Image();
+      const bg96 = new Image();
+      bg48.src = "/assets/bg_48.png";
+      bg96.src = "/assets/bg_96.png";
+
+      let alpha48 = null;
+      let alpha96 = null;
+
+      async function ensureAlphaMapsReady() {
+        await Promise.all([
+          new Promise((resolve, reject) => {
+            if (bg48.complete && bg48.naturalWidth) return resolve();
+            bg48.onload = resolve;
+            bg48.onerror = reject;
+          }),
+          new Promise((resolve, reject) => {
+            if (bg96.complete && bg96.naturalWidth) return resolve();
+            bg96.onload = resolve;
+            bg96.onerror = reject;
+          }),
+        ]);
+        if (!alpha48) alpha48 = buildAlphaMapFromImage(bg48, 48);
+        if (!alpha96) alpha96 = buildAlphaMapFromImage(bg96, 96);
+      }
+
+      function buildAlphaMapFromImage(img, size) {
+        const canvas = document.createElement("canvas");
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        ctx.drawImage(img, 0, 0);
+        const imageData = ctx.getImageData(0, 0, size, size);
+        return calculateAlphaMap(imageData);
+      }
+
+      function setStatus(text, type = "info") {
+        statusEl.textContent = text;
+        statusEl.classList.toggle("error", type === "error");
+      }
+
+      function formatCountText(done, total, phase = "प्रोसेस हो रहा है") {
+        return `${phase} ${done} में से ${total}…`;
+      }
+
+      function safeFileBaseName(name) {
+        return name.replace(/\.[^.]+$/, "").replace(/[^\w\-]+/g, "_").slice(0, 80) || "इमेज";
+      }
+
+      function bytesToHuman(bytes) {
+        if (!Number.isFinite(bytes) || bytes < 0) return "";
+        const units = ["B", "KB", "MB", "GB"];
+        let i = 0;
+        let n = bytes;
+        while (n >= 1024 && i < units.length - 1) { n /= 1024; i++; }
+        return `${n.toFixed(i === 0 ? 0 : 1)}${units[i]}`;
+      }
+
+      function getSelectedQuality() {
+        const q = Number(qualitySelect?.value ?? 1);
+        return Number.isFinite(q) ? Math.max(0, Math.min(1, q)) : 1;
+      }
+
+      function getSelectedFormat() {
+        const radio = document.querySelector('input[name="formatSelect"]:checked');
+        const v = radio?.value;
+        if (v === "jpeg" || v === "webp") return v;
+        return "png";
+      }
+
+      function setFormatToMatchFileType(fileType) {
+        let value = "png";
+        if (/image\/jpeg/i.test(fileType)) value = "jpeg";
+        else if (/image\/webp/i.test(fileType)) value = "webp";
+        const radio = document.querySelector(`input[name="formatSelect"][value="${value}"]`);
+        if (radio) radio.checked = true;
+      }
+
+      function getOutputSpec() {
+        const q = getSelectedQuality();
+        const format = getSelectedFormat();
+        if (format === "jpeg") return { mime: "image/jpeg", ext: "jpg", quality: q };
+        if (format === "webp") return { mime: "image/webp", ext: "webp", quality: q };
+        return { mime: "image/png", ext: "png", quality: q };
+      }
+
+      function getPngColorCountForQuality(q) {
+        if (q >= 0.999) return 0;
+        if (q >= 0.85) return 256;
+        return 192;
+      }
+
+      async function exportResultBlob({ canvas, imageData, mime, quality }) {
+        if (mime === "image/jpeg" || mime === "image/webp") {
+          const w = canvas.width, h = canvas.height;
+          const off = document.createElement("canvas");
+          off.width = w; off.height = h;
+          const ctx = off.getContext("2d");
+          ctx.fillStyle = "#ffffff";
+          ctx.fillRect(0, 0, w, h);
+          ctx.drawImage(canvas, 0, 0);
+          return await new Promise((resolve) => off.toBlob(resolve, mime, quality));
+        }
+        if (mime === "image/png") {
+          const q = Math.max(0, Math.min(1, Number(quality ?? 1)));
+          const colors = getPngColorCountForQuality(q);
+          if (colors === 0) {
+            return await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+          }
+          const UPNG = window.UPNG;
+          if (!UPNG || typeof UPNG.encode !== "function") {
+            return await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+          }
+          const w = canvas.width, h = canvas.height;
+          const size = w * h * 4;
+          const rgba = new Uint8Array(size);
+          rgba.set(imageData.data);
+          try {
+            const pngArrayBuffer = UPNG.encode([rgba.buffer], w, h, colors);
+            if (!pngArrayBuffer) throw new Error("UPNG.encode ने null लौटाया");
+            return new Blob([pngArrayBuffer], { type: "image/png" });
+          } catch (e) {
+            return await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+          }
+        }
+        return await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+      }
+
+      function downloadBlob(blob, filename) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+      }
+
+      function isSupportedImageFile(file) {
+        return !!file && /image\/(png|jpeg|webp)/.test(file.type);
+      }
+
+      function fileToDataUrl(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result));
+          reader.onerror = () => reject(new Error("इमेज फ़ाइल पढ़ने में विफल।"));
+          reader.readAsDataURL(file);
+        });
+      }
+
+      async function fileToImage(file) {
+        const dataUrl = await fileToDataUrl(file);
+        const img = new Image();
+        img.decoding = "async";
+        img.src = dataUrl;
+        await new Promise((resolve, reject) => {
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+        return img;
+      }
+
+      let batchItems = [];
+      let processedCount = 0;
+      let failedCount = 0;
+
+      function resetUI() {
+        batchItems.forEach((item) => {
+          if (item.resultUrl && item.resultUrl.startsWith("blob:")) URL.revokeObjectURL(item.resultUrl);
+        });
+        fileInput.value = "";
+        fileNameEl.textContent = "कोई फ़ाइल नहीं चुनी गई";
+        batchBar.classList.add("hidden");
+        thumbGrid.classList.add("hidden");
+        thumbGrid.innerHTML = "";
+        downloadAllBtn.disabled = true;
+        resetBtn.disabled = true;
+        setStatus("");
+        batchItems = [];
+        processedCount = 0;
+        failedCount = 0;
+      }
+
+      function createThumbCard(item) {
+        const card = document.createElement("div");
+        card.className = "thumb-card";
+        card.id = `card-${item.id}`;
+        card.innerHTML = `
+          <div class="thumb-header">
+            <div class="thumb-name" title="${item.name}">${item.name}</div>
+            <div class="thumb-status" id="status-${item.id}">कतार में</div>
+          </div>
+          <div class="thumb-body">
+            <div>
+              <p class="thumb-row-label">ओरिजिनल</p>
+              <img class="thumb-img" id="orig-${item.id}" alt="ओरिजिनल" />
+            </div>
+            <div>
+              <p class="thumb-row-label">रिज़ल्ट</p>
+              <img class="thumb-img" id="res-${item.id}" alt="रिज़ल्ट" />
+            </div>
+            <div class="thumb-row-label" id="size-${item.id}"></div>
+          </div>
+          <div class="thumb-footer">
+            <button class="btn primary" id="dl-${item.id}" type="button" disabled>डाउनलोड</button>
+          </div>
+        `;
+        thumbGrid.appendChild(card);
+      }
+
+      function setItemStatus(item, text, type = "info") {
+        const el = document.getElementById(`status-${item.id}`);
+        if (!el) return;
+        el.textContent = text;
+        el.classList.toggle("error", type === "error");
+      }
+
+      function setProgress(phase = "प्रोसेस हो रहा है") {
+        const total = batchItems.length;
+        const done = processedCount + failedCount;
+        progressText.textContent = formatCountText(done, total, phase);
+      }
+
+      function updateDownloadAllEnabled() {
+        const anyCompleted = batchItems.some((i) => i.status === "completed" && i.resultBlob);
+        const hasZip = typeof window.JSZip !== "undefined";
+        downloadAllBtn.disabled = !(anyCompleted && hasZip);
+      }
+
+      async function processOneItem(item) {
+        try {
+          setItemStatus(item, "लोड हो रहा है…");
+          setProgress("प्रोसेस हो रहा है");
+          const img = item.originalImg || (await fileToImage(item.file));
+          item.originalImg = img;
+          const origEl = document.getElementById(`orig-${item.id}`);
+          if (origEl) origEl.src = img.src;
+
+          setItemStatus(item, "वॉटरमार्क हटाया जा रहा है…");
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext("2d", { willReadFrequently: true });
+          ctx.drawImage(img, 0, 0);
+          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+          const config = detectWatermarkConfig(canvas.width, canvas.height);
+          const position = calculateWatermarkPosition(canvas.width, canvas.height, config);
+          const alphaMap = config.logoSize === 96 ? alpha96 : alpha48;
+
+          removeWatermark(imageData, alphaMap, position);
+          ctx.putImageData(imageData, 0, 0);
+
+          const { mime, ext, quality } = getOutputSpec();
+          const blob = await exportResultBlob({ canvas, imageData, mime, quality });
+          if (!blob) throw new Error("रिज़ल्ट इमेज एक्सपोर्ट करने में विफल।");
+
+          if (item.resultUrl && item.resultUrl.startsWith("blob:")) URL.revokeObjectURL(item.resultUrl);
+          item.resultBlob = blob;
+          item.resultUrl = URL.createObjectURL(blob);
+          item.resultExt = ext;
+
+          const resEl = document.getElementById(`res-${item.id}`);
+          if (resEl) resEl.src = item.resultUrl;
+
+          const sizeEl = document.getElementById(`size-${item.id}`);
+          if (sizeEl) {
+            const originalText = `ओरिजिनल: ${bytesToHuman(item.file.size)}`;
+            const resultText = `रिज़ल्ट: ${bytesToHuman(blob.size)}`;
+            sizeEl.textContent = `${originalText} → ${resultText}`;
+          }
+
+          item.status = "completed";
+          processedCount++;
+          setItemStatus(item, "पूरा हुआ");
+
+          const dlBtn = document.getElementById(`dl-${item.id}`);
+          if (dlBtn) {
+            dlBtn.disabled = false;
+            dlBtn.onclick = () => {
+              const base = safeFileBaseName(item.name);
+              downloadBlob(blob, `बिना_वॉटरमार्क_${base}.${ext}`);
+            };
+          }
+        } catch (err) {
+          console.error(err);
+          item.status = "error";
+          failedCount++;
+          setItemStatus(item, "विफल", "error");
+          setStatus("कुछ इमेज प्रोसेस नहीं हो पाईं। ज़्यादा जानकारी के लिए कंसोल देखें।", "error");
+        } finally {
+          setProgress("प्रोसेस हो रहा है");
+          updateDownloadAllEnabled();
+        }
+      }
+
+      async function handleFiles(files) {
+        const onlyImages = files.filter(isSupportedImageFile);
+        if (onlyImages.length === 0) {
+          setStatus("कृपया PNG, JPG या WebP इमेज अपलोड करें।", "error");
+          return;
+        }
+        if (onlyImages.length > 10) {
+          setStatus("कृपया 10 या उससे कम इमेज अपलोड करें।", "error");
+          return;
+        }
+
+        resetUI();
+        batchItems = onlyImages.map((file, idx) => ({
+          id: `${Date.now()}_${idx}`,
+          file,
+          name: file.name,
+          status: "queued",
+          originalImg: null,
+          resultBlob: null,
+          resultUrl: null,
+        }));
+
+        fileNameEl.textContent = `चुनी गईं: ${batchItems.length} इमेज`;
+        thumbGrid.classList.remove("hidden");
+        batchBar.classList.remove("hidden");
+        resetBtn.disabled = false;
+        setStatus("");
+        processedCount = 0;
+        failedCount = 0;
+        setProgress("प्रोसेस हो रहा है");
+        setFormatToMatchFileType(onlyImages[0].type);
+
+        batchItems.forEach(createThumbCard);
+
+        try {
+          await ensureAlphaMapsReady();
+        } catch (err) {
+          console.error(err);
+          setStatus("वॉटरमार्क मैप लोड करने में विफल। सुनिश्चित करें कि assets फोल्डर मौजूद है।", "error");
+          batchItems.forEach((item) => setItemStatus(item, "विफल", "error"));
+          return;
+        }
+
+        const concurrency = 2;
+        let cursor = 0;
+        async function worker() {
+          while (cursor < batchItems.length) {
+            const item = batchItems[cursor++];
+            await processOneItem(item);
+          }
+        }
+        await Promise.all(Array.from({ length: concurrency }, worker));
+        setProgress("पूरा हुआ");
+        updateDownloadAllEnabled();
+      }
+
+      async function reprocessCurrentBatch() {
+        if (batchItems.length === 0) return;
+        downloadAllBtn.disabled = true;
+        processedCount = 0;
+        failedCount = 0;
+        setProgress("दोबारा प्रोसेस हो रहा है");
+        batchItems.forEach((item) => {
+          item.status = "queued";
+          if (item.resultUrl && item.resultUrl.startsWith("blob:")) URL.revokeObjectURL(item.resultUrl);
+          item.resultUrl = null;
+          item.resultBlob = null;
+          const resEl = document.getElementById(`res-${item.id}`);
+          if (resEl) resEl.removeAttribute("src");
+          const dlBtn = document.getElementById(`dl-${item.id}`);
+          if (dlBtn) dlBtn.disabled = true;
+          setItemStatus(item, "कतार में");
+        });
+        const concurrency = 2;
+        let cursor = 0;
+        async function worker() {
+          while (cursor < batchItems.length) {
+            const item = batchItems[cursor++];
+            await processOneItem(item);
+          }
+        }
+        await Promise.all(Array.from({ length: concurrency }, worker));
+        setProgress("पूरा हुआ");
+        updateDownloadAllEnabled();
+      }
+
+      async function downloadAllAsZip() {
+        if (typeof window.JSZip === "undefined") {
+          setStatus("JSZip लोड नहीं हो सका। कृपया पेज रिफ्रेश करें।", "error");
+          return;
+        }
+        const completed = batchItems.filter((i) => i.status === "completed" && i.resultBlob);
+        if (completed.length === 0) return;
+        downloadAllBtn.disabled = true;
+        setProgress("ज़िप हो रहा है");
+        try {
+          const zip = new window.JSZip();
+          completed.forEach((item) => {
+            const base = safeFileBaseName(item.name);
+            const ext = item.resultExt || "png";
+            zip.file(`बिना_वॉटरमार्क_${base}.${ext}`, item.resultBlob);
+          });
+          const zipBlob = await zip.generateAsync({ type: "blob" });
+          downloadBlob(zipBlob, `बिना_वॉटरमार्क_${Date.now()}.zip`);
+          setStatus("ZIP तैयार है।");
+        } catch (err) {
+          console.error(err);
+          setStatus("ZIP बनाने में विफल।", "error");
+        } finally {
+          updateDownloadAllEnabled();
+          setProgress("पूरा हुआ");
+        }
+      }
+
+      uploadArea.addEventListener("click", () => fileInput.click());
+      uploadArea.addEventListener("dragover", (e) => { e.preventDefault(); uploadArea.classList.add("dragover"); });
+      uploadArea.addEventListener("dragleave", () => { uploadArea.classList.remove("dragover"); });
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove("dragover");
+        const files = Array.from(e.dataTransfer?.files || []);
+        if (files.length) handleFiles(files);
+      });
+      uploadArea.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fileInput.click(); }
+      });
+      fileInput.addEventListener("change", () => {
+        const files = Array.from(fileInput.files || []);
+        if (files.length) handleFiles(files);
+      });
+      resetBtn.addEventListener("click", resetUI);
+      downloadAllBtn.addEventListener("click", downloadAllAsZip);
+      qualitySelect?.addEventListener("change", reprocessCurrentBatch);
+      formatRadios?.forEach((radio) => radio.addEventListener("change", reprocessCurrentBatch));
+
+      resetUI();
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const topBarInner = document.querySelector('.top-bar-inner');
+        const heroHeading = document.querySelector('.hero-heading h1');
+        if (!topBarInner || !heroHeading) return;
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              const scrollY = window.scrollY || window.pageYOffset;
+              if (scrollY < 150) {
+                const shift = scrollY * 0.015;
+                topBarInner.style.transform = `scaleX(${1 - shift * 0.005})`;
+                heroHeading.style.transform = `translateY(${-shift * 0.4}px)`;
+              } else {
+                topBarInner.style.transform = 'scaleX(1)';
+                heroHeading.style.transform = 'translateY(0px)';
+              }
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+      });
+    })();
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Gemini Watermark Remover",
+    "url": "https://geminilogoremover.online/hi/",
+    "description": "Gemini की इमेज से वॉटरमार्क ऑनलाइन और मुफ़्त में हटाएँ। बिना सर्वर अपलोड के एक साथ 10 इमेज प्रोसेस करें।",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "browserRequirements": "जावास्क्रिप्ट आवश्यक है"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "क्या यह टूल वाकई मुफ़्त है?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "बिल्कुल! हमारा Gemini वॉटरमार्क रिमूवर पूरी तरह मुफ़्त है। कोई छिपी फीस नहीं, कोई सब्सक्रिप्शन प्लान नहीं, और न ही पेवॉल के पीछे बंद प्रीमियम फीचर्स। आप जितनी चाहें उतनी इमेज प्रोसेस कर सकते हैं।"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "क्या वॉटरमार्क हटाने से मेरी इमेज की क्वालिटी पर असर पड़ेगा?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "नहीं, हमारा एल्गोरिदम आपकी इमेज की ओरिजिनल क्वालिटी बनाए रखने के लिए डिज़ाइन किया गया है। आप अपनी ज़रूरत के हिसाब से आउटपुट क्वालिटी (100% ओरिजिनल तक) और फॉर्मेट (PNG, JPEG, WebP) भी चुन सकते हैं।"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "क्या मेरी इमेज किसी सर्वर पर अपलोड होती हैं?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "नहीं, सब कुछ आपके ब्राउज़र में लोकली होता है। आपकी इमेज कभी आपके डिवाइस से बाहर नहीं जातीं, जिससे पूरी प्राइवेसी और सुरक्षा बनी रहती है। हम आपकी कोई भी फ़ाइल स्टोर, देख या शेयर नहीं करते।"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "कौन से इमेज फॉर्मेट सपोर्टेड हैं?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "फिलहाल हम PNG, JPEG और WebP फॉर्मेट सपोर्ट करते हैं। आप इनमें से किसी भी फॉर्मेट में इमेज अपलोड कर सकते हैं और प्रोसेसिंग के बाद अपना मनपसंद आउटपुट फॉर्मेट चुन सकते हैं।"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "क्या मैं एक साथ कई इमेज प्रोसेस कर सकता हूँ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "हाँ! आप एक बार में 10 इमेज तक बैच प्रोसेस कर सकते हैं। बस कई फ़ाइलें सेलेक्ट या ड्रैग करें, और वे समानांतर रूप से प्रोसेस होंगी। इसके बाद आप उन्हें अलग-अलग या ZIP आर्काइव में डाउनलोड कर सकते हैं।"
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
