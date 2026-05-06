@@ -750,6 +750,95 @@
         padding: 0 1rem;
       }
     }
+    /* ─────────────────────────────────────
+       Footer Styles
+       ───────────────────────────────────── */
+    .site-footer {
+      width: 100%;
+      background-color: #fcfcfc;
+      padding: 4rem 1.2rem;
+      border-top: 1px solid #eee;
+      margin-top: 4rem;
+    }
+
+    .footer-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .footer-brand {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+
+    .footer-domain {
+      font-family: 'Cookie', cursive;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: #1e1e1e;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .footer-copyright {
+      color: #555;
+      font-size: 0.9rem;
+      padding-left: 0.2rem;
+    }
+
+    .footer-links {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .footer-column a {
+      color: #333;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: color 0.2s ease;
+    }
+
+    .footer-column a:hover {
+      color: #000;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Responsive layout matching the reference image */
+    @media (min-width: 768px) {
+      .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 4rem;
+      }
+      .footer-brand {
+        flex: 0 0 200px;
+      }
+      .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .footer-links {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
   </style>
 </head>
 <body>
@@ -1590,5 +1679,33 @@
     ]
   }
   </script>
+<footer class="site-footer">
+    <div class="footer-container">
+      
+      <div class="footer-brand">
+        <a href="/" class="footer-domain">geminilogoremover.online</a>
+        <p class="footer-copyright">© 2024-2026</p>
+      </div>
+
+      <div class="footer-links">
+        
+        <div class="footer-column">
+          <a href="/es/eliminar-marca-de-agua-gemini-herramienta-gratuita-en-linea.html">Eliminar Marca de Agua Gemini – Herramienta Gratuita en Línea</a>
+          <a href="/es/eliminar-marca-de-agua-de-imagenes-generadas-por-gemini.html">Eliminar Marca de Agua de Imágenes Generadas por Gemini</a>
+        </div>
+
+        <div class="footer-column">
+          <a href="/es/eliminador-ia-marca-de-agua-gemini-inteligente-automatico.html">Eliminador IA de Marca de Agua Gemini – Inteligente y Automático</a>
+          <a href="/es/esta-permitido-eliminar-marca-de-agua-gemini-guia-legal.html">¿Está Permitido Eliminar la Marca de Agua de Gemini? Guía Legal</a>
+        </div>
+
+        <div class="footer-column">
+          <a href="/es/eliminar-logo-gemini-de-imagen-resultados-limpios.html">Eliminar Logo Gemini de Imagen – Resultados Limpios</a>
+          <a href="/es/como-enganar-a-gemini-para-que-elimine-marcas-de-agua.html">Cómo Engañar a Gemini para que Elimine Marcas de Agua</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
